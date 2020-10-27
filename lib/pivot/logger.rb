@@ -1,7 +1,7 @@
 require 'logger'
 
 module Pivot
-  class Logger
-    # Code here!
+  class Logger < ::Logger
+    def initialize(format); end
   end
 end
