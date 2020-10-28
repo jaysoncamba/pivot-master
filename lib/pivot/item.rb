@@ -1,13 +1,13 @@
+require "pivot/helpers/initializable"
+
 module Pivot
   class Item
+    include Initializable
+
     attr_accessor :name, :assignee, :points
 
     PROJECT_CODE_FORMAT = /^[a-zA-Z]*/
     VALID_PROJECTS = %w[EREC AZR]
-
-    def initialize params = {}
-      params.each { |key, value| send "#{key}=", value }
-    end
     
     def +(another_item)
       return points unless (another_item.is_a?(Item))

@@ -5,12 +5,12 @@ RSpec.describe Pivot::Tracker do
   let(:items) do
     [
       { name: "EREC-10", assignee: 'smith@example.com', points: 2 },
-      { name: "EREC-21", assignee: 'johndough@example.com',  points: 1},
+      { name: "EREC-21", assignee: 'johndough@example.com',  points: 4},
       { name: "EREC-32", assignee: 'cesar@example.com',  points: 3},
       { name: "EREC-11", assignee: 'bruno@example.com', points: 5 },
       { name: "EREC-12", assignee: 'cesar@example.com',  points: 3},
       { name: "EREC-13", assignee: 'genericman@example.com', points: 2},
-      { name: "EREC-14", assignee: 'johndough@example.com',  points: 4}
+      { name: "EREC-14", assignee: 'johndough@example.com',  points: 1}
     ]
   end
 
@@ -39,7 +39,7 @@ RSpec.describe Pivot::Tracker do
 
   describe ".total_points" do
     it "sums the total of points that was pivoted" do
-      expect(Pivot::Tracker.total_points(items)).to eq(13)
+      expect(Pivot::Tracker.total_points(items)).to eq(20)
     end
 
     it "sums the total points that an assignee pivoted" do

@@ -1,12 +1,11 @@
+require "pivot/helpers/initializable"
+
 module Pivot
   class Person
+    include Initializable
 
     attr_accessor :email, :first_name, :last_name
     attr_reader :items
-
-    def initialize params = {}
-      params.each { |key, value| send "#{key}=", value }
-    end
 
     def items
       @items ||= []
